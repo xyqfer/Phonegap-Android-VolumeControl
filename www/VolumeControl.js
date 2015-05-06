@@ -6,26 +6,21 @@
  * Date: 12/28/2012
  */
 
-var exec = require('cordova/exec');
-
-var VolumeControl = {
-  setVolume: function(vol, successCallback, failureCallback, playSound){
-		return exec(
-			successCallback,
-			failureCallback,
-			'VolumeControl',
-			'setVolume',
-			[vol, playSound]
-		);
-	},
-	getVolume: function(successCallback,failureCallback){
-		return exec(
-			successCallback,
-			failureCallback,
-			'VolumeControl',
-			'getVolume',
-			[]);
-	}
+exports.setVolume = function(vol, successCallback, failureCallback, playSound) {
+	return cordova.exec(
+		successCallback,
+		failureCallback,
+		'VolumeControl',
+		'setVolume',
+		[vol, playSound]
+	);
 };
 
-module.exports = VolumeControl;
+exports.getVolume = function (successCallback, failureCallback) {
+	return cordova.exec(
+		successCallback,
+		failureCallback,
+		'VolumeControl',
+		'getVolume',
+		[]);
+};
